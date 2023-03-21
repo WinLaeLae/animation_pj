@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class OrbitAnimation extends StatefulWidget {
   const OrbitAnimation({super.key});
@@ -31,7 +29,7 @@ class _OrbitAnimationState extends State<OrbitAnimation> with TickerProviderStat
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage('images/stars_space_darkness_night_black_sky_background_hd_space-2560x1440.jpg'), fit: BoxFit.fill),
         ),
         child: InteractiveViewer(
@@ -91,7 +89,6 @@ class _OrbitAnimationState extends State<OrbitAnimation> with TickerProviderStat
 
 class _Planet extends StatelessWidget {
   const _Planet({
-    super.key,
     required this.radius,
     required this.color,
   });
@@ -112,7 +109,7 @@ class _Planet extends StatelessWidget {
 }
 
 class _Orbit extends StatelessWidget {
-  const _Orbit({super.key, required this.distanceFromSun});
+  const _Orbit({required this.distanceFromSun});
   final double distanceFromSun;
   @override
   Widget build(BuildContext context) {
@@ -132,7 +129,6 @@ class _Orbit extends StatelessWidget {
 
 class _AnimatedPlanet extends StatelessWidget {
   const _AnimatedPlanet({
-    super.key,
     required this.controller,
     required this.distanceFromSun,
     required this.planetRadius,
