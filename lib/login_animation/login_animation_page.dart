@@ -23,6 +23,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
   double img5width = 100;
   double img5height = 100;
   double font = 30;
+  
   final random = Random();
   double op = 1.0;
   @override
