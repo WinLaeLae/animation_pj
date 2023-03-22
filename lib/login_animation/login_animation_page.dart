@@ -222,5 +222,6 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
             ),
           ),
         ));
+ 
   }
 }
