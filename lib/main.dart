@@ -1,4 +1,3 @@
-import 'package:animation_pj/login_animation/login_animation_page.dart';
 import 'package:flutter/material.dart';
 
 import 'orbit_animation.dart';
@@ -14,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
-      home: const LoginAnimationPage(),
+      theme: ThemeData(useMaterial3: true),
+      home: const OrbitAnimation(),
     );
   }
 }
