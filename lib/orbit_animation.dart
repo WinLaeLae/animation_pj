@@ -15,44 +15,44 @@ class _OrbitAnimationState extends State<OrbitAnimation> with TickerProviderStat
   late final controller5 = AnimationController(vsync: this);
   late final controller6 = AnimationController(vsync: this);
 
-  static const _duration = 2;
+  static const _duration = 3000;
   double factor = 1;
   @override
   void initState() {
     super.initState();
-    _play(1);
+    _play(factor);
   }
 
   void _play(double factor) {
     controller1.repeat(
       min: 0,
       max: 1,
-      period: Duration(seconds: (_duration / factor).ceil()),
+      period: Duration(milliseconds: (_duration / factor).ceil()),
     );
     controller2.repeat(
       min: 0,
       max: 1,
-      period: Duration(seconds: ((_duration * 1.5) / factor).ceil()),
+      period: Duration(milliseconds: ((_duration * 1.5) / factor).ceil()),
     );
     controller3.repeat(
       min: 0,
       max: 1,
-      period: Duration(seconds: ((_duration * 2) / factor).ceil()),
+      period: Duration(milliseconds: ((_duration * 2) / factor).ceil()),
     );
     controller4.repeat(
       min: 0,
       max: 1,
-      period: Duration(seconds: ((_duration * 2.5) / factor).ceil()),
+      period: Duration(milliseconds: ((_duration * 2.5) / factor).ceil()),
     );
     controller5.repeat(
       min: 0,
       max: 1,
-      period: Duration(seconds: ((_duration * 3.5) / factor).ceil()),
+      period: Duration(milliseconds: ((_duration * 3.5) / factor).ceil()),
     );
     controller6.repeat(
       min: 0,
       max: 1,
-      period: Duration(seconds: ((_duration * 4.5) / factor).ceil()),
+      period: Duration(milliseconds: ((_duration * 4.5) / factor).ceil()),
     );
   }
 
@@ -73,17 +73,25 @@ class _OrbitAnimationState extends State<OrbitAnimation> with TickerProviderStat
                 right: 0,
                 child: SizedBox(
                   width: 300,
-                  child: Slider(
-                    activeColor: Colors.white,
-                    inactiveColor: Colors.grey,
-                    min: 1,
-                    max: 5000,
-                    value: factor,
-                    onChanged: (value) {
-                      factor = value;
-                      setState(() {});
-                      _play(value);
-                    },
+                  child: Row(
+                    children: [
+                      Text(
+                        factor.toStringAsFixed(3),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      Slider(
+                        activeColor: Colors.white,
+                        inactiveColor: Colors.grey,
+                        min: .005,
+                        max: 10,
+                        value: factor,
+                        onChanged: (value) {
+                          factor = value;
+                          setState(() {});
+                          _play(value);
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
