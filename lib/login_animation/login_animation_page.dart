@@ -27,10 +27,11 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
 
   final random = Random();
   double op = 1.0;
+  late final Timer timer;
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 1), () {
+    timer = Timer(const Duration(seconds: 1), () {
       setState(() {
         oneL = 22; //random.nextInt(30).toDouble();
         twol = 28; //random.nextInt(40).toDouble();
@@ -62,6 +63,12 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
   }
 
   @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color(0xffFDD8C3),
@@ -72,10 +79,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
               children: [
                 Container(
                   height: 350,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('images/bg.png'),
-                          fit: BoxFit.fill)),
+                  decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('images/bg.png'), fit: BoxFit.fill)),
                   child: Stack(
                     children: [
                       AnimatedPositioned(
@@ -85,9 +89,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                           height: img1height,
                           duration: const Duration(milliseconds: 1000),
                           child: Container(
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('images/image_one.png'))),
+                            decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('images/image_one.png'))),
                           )),
                       AnimatedPositioned(
                           top: twol,
@@ -96,9 +98,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                           height: img2height,
                           duration: const Duration(milliseconds: 1000),
                           child: Container(
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('images/image_two.png'))),
+                            decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('images/image_two.png'))),
                           )),
                       AnimatedPositioned(
                           right: fourl,
@@ -107,10 +107,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                           height: img1height,
                           duration: const Duration(milliseconds: 1000),
                           child: Container(
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image:
-                                        AssetImage('images/image_four.png'))),
+                            decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('images/image_four.png'))),
                           )),
                       AnimatedPositioned(
                         duration: const Duration(milliseconds: 1000),
@@ -122,10 +119,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                             child: const Center(
                               child: Text(
                                 "Login",
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 252, 166, 116),
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold),
+                                style: TextStyle(color: Color.fromARGB(255, 252, 166, 116), fontSize: 40, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -138,8 +132,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                   height: img5height,
                   width: img5width,
                   duration: const Duration(milliseconds: 1000),
-                  child:
-                      const Image(image: AssetImage("images/image_five.png")),
+                  child: const Image(image: AssetImage("images/image_five.png")),
                 ),
                 AnimatedOpacity(
                   opacity: op,
@@ -153,39 +146,21 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(247, 254, 230, 203),
                               borderRadius: BorderRadius.circular(10),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Color.fromRGBO(143, 148, 251, .2),
-                                    blurRadius: 20.0,
-                                    offset: Offset(0, 10))
-                              ]),
+                              boxShadow: const [BoxShadow(color: Color.fromRGBO(143, 148, 251, .2), blurRadius: 20.0, offset: Offset(0, 10))]),
                           child: Column(
                             children: [
                               Container(
                                 padding: const EdgeInsets.all(8.0),
-                                decoration: const BoxDecoration(
-                                    border: Border(
-                                        bottom: BorderSide(
-                                            color: Color.fromARGB(
-                                                255, 254, 128, 55)))),
+                                decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: Color.fromARGB(255, 254, 128, 55)))),
                                 child: const TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Email or Phone number",
-                                      hintStyle: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 252, 166, 116))),
+                                  decoration:
+                                      InputDecoration(border: InputBorder.none, hintText: "Email or Phone number", hintStyle: TextStyle(color: Color.fromARGB(255, 252, 166, 116))),
                                 ),
                               ),
                               Container(
                                 padding: const EdgeInsets.all(8.0),
                                 child: const TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Password",
-                                      hintStyle: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 252, 166, 116))),
+                                  decoration: InputDecoration(border: InputBorder.none, hintText: "Password", hintStyle: TextStyle(color: Color.fromARGB(255, 252, 166, 116))),
                                 ),
                               ),
                             ],
@@ -215,9 +190,7 @@ class _LoginAnimationPageState extends State<LoginAnimationPage> {
                             child: const Center(
                               child: Text(
                                 "Login",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
