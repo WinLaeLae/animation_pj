@@ -1,4 +1,5 @@
 import 'package:animation_pj/login_animation/login_animation_page.dart';
+import 'package:animation_pj/propose/propose_animation_page.dart';
 import 'package:flutter/material.dart';
 
 import 'orbit_animation.dart';
