@@ -13,11 +13,11 @@ class ProposeAnimationPage extends StatefulWidget {
 class _ProposeAnimationPageState extends State<ProposeAnimationPage> {
   double oneL = 0;
   double twol = 0;
-  double fourl = 15;
-  double fivel = 40;
-  double sixl = 170;
-  double sevenl = 60;
-  double eightl = 50;
+  double fourl = 0;
+  double fivel = 0;
+  double sixl = 0;
+  double sevenl = 0;
+  double eightl = 0;
   double img1width = 80;
   double img1height = 120;
   double img2width = 80;
@@ -28,15 +28,15 @@ class _ProposeAnimationPageState extends State<ProposeAnimationPage> {
   double img5height = 100;
   double font = 30;
   double manwidth = 80;
-  double manheight = 120;
+  double manheight = 140;
   double raing = 50;
   double girlwidth = 80;
-  double girlheight = 120;
+  double girlheight = 140;
   double manl = 70;
   double girll = 130;
 
   final random = Random();
-
+  double op = 0.0;
   @override
   void initState() {
     // TODO: implement initState
@@ -59,25 +59,13 @@ class _ProposeAnimationPageState extends State<ProposeAnimationPage> {
         manl = 80;
         raing = 80;
         girll = 150;
-
+        op = 1.0;
         font = 35;
       });
     });
   }
 
-  void resize() {
-    setState(() {
-      img5width = 270;
-      img1height = 160;
-      img1width = 100;
-      img2width = 120;
-      img2height = 200;
-      img4height = 100;
-      img4width = 160;
-      img5height = 270;
-      girlheight = font = 40;
-    });
-  }
+  void play() {}
 
   @override
   Widget build(BuildContext context) {
@@ -88,20 +76,23 @@ class _ProposeAnimationPageState extends State<ProposeAnimationPage> {
           child: Column(
             children: [
               SizedBox(
-                height: 350,
+                height: 380,
                 child: Stack(
                   children: [
-                    AnimatedPositioned(
-                        left: fourl,
-                        top: 130,
-                        width: img4width,
-                        height: img1height,
-                        duration: const Duration(milliseconds: 1000),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('images/h5.png'))),
-                        )),
+                    AnimatedOpacity(
+                      duration: const Duration(milliseconds: 1000),
+                      opacity: op,
+                      child: Positioned(
+                          left: fourl,
+                          top: 150,
+                          width: img4width,
+                          height: img1height,
+                          // duration: const Duration(milliseconds: 1000),
+                          child: Image.asset(
+                            'images/h5.png',
+                            color: Colors.blue,
+                          )),
+                    ),
                     AnimatedPositioned(
                         left: oneL,
                         width: img1width,
